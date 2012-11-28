@@ -48,9 +48,9 @@ POSSIBILITY OF SUCH DAMAGE.
     </license>
   </licenses>
   <scm>
-    <connection>scm:svn:http://jsslutils.googlecode.com/svn/trunk</connection>
-    <developerConnection>scm:svn:https://jsslutils.googlecode.com/svn/trunk</developerConnection>
-    <url>http://code.google.com/p/jsslutils/source/browse</url>
+    <connection>scm:svn:http://bned-fusion.blackned.intern/svn/jsslutils/trunk</connection>
+    <developerConnection>scm:svn:http://bned-fusion.blackned.intern/svn/jsslutils/trunk</developerConnection>
+    <url>http://bned-fusion.blackned.intern/svn/jsslutils/trunk</url>
   </scm>
   
   <distributionManagement>
