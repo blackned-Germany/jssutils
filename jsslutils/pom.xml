@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jsslutils</groupId>
   <artifactId>jsslutils</artifactId>
-  <version>1.0.8</version>
+  <version>1.0.9-SNAPSHOT</version>
   <packaging>bundle</packaging>
   <name>jSSLutils</name>
   <url>http://www.jsslutils.org/</url>
@@ -47,9 +47,9 @@ POSSIBILITY OF SUCH DAMAGE.
     </license>
   </licenses>
   <scm>
-    <connection>scm:svn:http://bned-fusion.blackned.intern/svn/jsslutils/tags/jsslutils-1.0.8</connection>
-    <developerConnection>scm:svn:http://bned-fusion.blackned.intern/svn/jsslutils/tags/jsslutils-1.0.8</developerConnection>
-    <url>http://bned-fusion.blackned.intern/svn/jsslutils/tags/jsslutils-1.0.8</url>
+    <connection>scm:svn:http://bned-fusion.blackned.intern/svn/jsslutils/trunk/jsslutils</connection>
+    <developerConnection>scm:svn:http://bned-fusion.blackned.intern/svn/jsslutils/trunk/jsslutils</developerConnection>
+    <url>http://bned-fusion.blackned.intern/svn/jsslutils/trunk/jsslutils</url>
   </scm>
   
   <distributionManagement>
