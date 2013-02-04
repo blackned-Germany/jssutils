@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jsslutils</groupId>
   <artifactId>jsslutils</artifactId>
@@ -51,7 +52,7 @@ POSSIBILITY OF SUCH DAMAGE.
     <developerConnection>scm:svn:http://bned-fusion.blackned.intern/svn/jsslutils/trunk/jsslutils</developerConnection>
     <url>http://bned-fusion.blackned.intern/svn/jsslutils/trunk/jsslutils</url>
   </scm>
-  
+
   <distributionManagement>
     <repository>
       <id>nexus.release</id>
@@ -64,7 +65,7 @@ POSSIBILITY OF SUCH DAMAGE.
       <url>http://172.27.200.55:8081/nexus/content/repositories/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
-  
+
   <build>
     <plugins>
       <plugin>
@@ -99,8 +100,8 @@ POSSIBILITY OF SUCH DAMAGE.
   </build>
 
   <ciManagement>
-  	<system>Jenkins</system>
-  	<url>http://172.27.200.51:8080/job/jSSLUtils</url>
+    <system>Jenkins</system>
+    <url>http://172.27.200.51:8080/job/jSSLUtils</url>
   </ciManagement>
   <developers>
     <developer>
@@ -116,4 +117,17 @@ POSSIBILITY OF SUCH DAMAGE.
       <timezone>0</timezone>
     </developer>
   </developers>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.6.4</version>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+  </dependencies>
 </project>

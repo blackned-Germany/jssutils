@@ -66,6 +66,9 @@ import javax.net.ssl.ManagerFactoryParameters;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * This class is a factory that provides methods for creating an SSLContext
  * configured with the settings set in this factory: using the PKIX algorithm
@@ -81,8 +84,10 @@ import javax.net.ssl.TrustManagerFactory;
  * 
  */
 public class PKIXSSLContextFactory extends X509SSLContextFactory {
-    public final static String CRL_RELOAD_INTERVAL_PROP = "org.jsslutils.prop.crlReloadInterval";
-
+    private static final int INITIAL_DELAY = 10;
+	private static final Logger LOGGER = LoggerFactory.getLogger(PKIXSSLContextFactory.class);
+	public final static String CRL_RELOAD_INTERVAL_PROP = "org.jsslutils.prop.crlReloadInterval";
+    
     protected boolean enableRevocation;
     protected Set<CRL> crlCollection = new HashSet<CRL>();
     private CertificateFactory certificateFactory = null;
@@ -342,9 +347,10 @@ public class PKIXSSLContextFactory extends X509SSLContextFactory {
         long reloadInterval = 0;
         try {
             reloadInterval = Long.valueOf(System.getProperty(
-                    CRL_RELOAD_INTERVAL_PROP, "0"));
+                    CRL_RELOAD_INTERVAL_PROP, "10"));
         } catch (NumberFormatException e) {
         }
+        System.out.println("CRL reload interval: " + reloadInterval + " seconds.");
         addCrl(crlUrl, reloadInterval);
     }
 
@@ -361,13 +367,21 @@ public class PKIXSSLContextFactory extends X509SSLContextFactory {
      * @throws MalformedURLException
      * @throws IOException
      */
-    public void addCrl(String crlUrl, long reloadInterval)
+    public void addCrl(final String crlUrl, long reloadInterval)
             throws SSLContextFactoryException, MalformedURLException,
             IOException {
         if (reloadInterval > 0) {
-            Callable<X509CRL> reloader = addReloadableCrl(crlUrl);
-            crlReloaderScheduledThreadPoolExecutor.schedule(reloader,
-                    reloadInterval, TimeUnit.SECONDS);
+        	final Callable<X509CRL> reloader = addReloadableCrl(crlUrl);
+            crlReloaderScheduledThreadPoolExecutor.scheduleAtFixedRate(new Runnable() {
+				
+				public void run() {
+					try {
+						reloader.call();
+					} catch (Exception e) {
+						LOGGER.error(e.toString());
+					}
+				}
+			}, INITIAL_DELAY, reloadInterval, TimeUnit.SECONDS);
         } else {
             this.crlCollection.add(loadCrl(crlUrl));
         }
