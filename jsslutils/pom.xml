@@ -47,21 +47,21 @@ POSSIBILITY OF SUCH DAMAGE.
     </license>
   </licenses>
   <scm>
-    <connection>scm:svn:http://bned-fusion.blackned.intern/svn/jsslutils/trunk/jsslutils</connection>
-    <developerConnection>scm:svn:http://bned-fusion.blackned.intern/svn/jsslutils/trunk/jsslutils</developerConnection>
-    <url>http://bned-fusion.blackned.intern/svn/jsslutils/trunk/jsslutils</url>
+    <connection>scm:git:git@bned-gitlab.blackned.intern:opensource/jsslutils.git</connection>
+    <developerConnection>scm:git:git@bned-gitlab.blackned.intern:opensource/jsslutils.git</developerConnection>
+    <url>http://bned-gitlab.blackned.intern/opensource/jsslutils</url>
   </scm>
 
   <distributionManagement>
     <repository>
       <id>nexus.release</id>
       <name>Blackned Release Repository</name>
-      <url>http://172.27.200.55:8081/nexus/content/repositories/releases</url>
+      <url>http://bned-nexus.blackned.intern:8081/nexus/content/repositories/releases</url>
     </repository>
     <snapshotRepository>
       <id>nexus.snapshots</id>
       <name>Blackned Snapshot Repository</name>
-      <url>http://172.27.200.55:8081/nexus/content/repositories/snapshots</url>
+      <url>http://bned-nexus.blackned.intern:8081/nexus/content/repositories/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
 
